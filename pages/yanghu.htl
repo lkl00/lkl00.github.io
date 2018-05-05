@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今天吃什么</title>
+<center><script>
+ var time=null;
+ var list="桃苑,荷苑,竹园,小飞象,富豪".split(",");
+ var bol = false;
+function startRun(){
+ var i=Math.random()*list.length;
+ i=Math.floor(i);
+ document.getElementById("award").innerText=list[i];
+ document.getElementById("cc").value="暂停";
+ time=setTimeout("startRun()",100);
+}
+function stopRun(){
+  if(time!=null)
+  document.getElementById("cc").value="开始";
+  clearTimeout(time);
+  
+}
+function startorstop(){
+ if(bol)
+  stopRun();
+ else
+  startRun();
+ bol = !bol;
+  
+}
+</script>
+</head>
+<body>
+  <br>
+  <p style="font-size:20px;color:green;text-align:center;">我们今天吃什么？</p> 
+  <br>
+  <div id="award" style="font-size:100px; color:black"></div>
+  <br>
+  <p align="center"><input type="button" id="cc" value="开始" onclick="startorstop()"></p>
+  <p style="font-size:15px;color:#000000;text-align:center;">点击上方“开始”按钮，结束请按“暂停”</p> 
+  
+</body>
+</html>
